@@ -14,7 +14,7 @@
                 // eslint-disable-next-line @typescript-eslint/camelcase
                 b_count: 5,
                 // eslint-disable-next-line @typescript-eslint/camelcase
-                c_count: this.b_count + 7
+                c_count: 7
 
             }
         }

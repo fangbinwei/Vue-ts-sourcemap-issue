@@ -3,6 +3,8 @@
     <Foo :count="3+2"></Foo>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    {{count}}
+    <button type="button" @click="clickHandler">add</button>
   </div>
 </template>
 
@@ -24,7 +26,12 @@ console.log("a+b")
     Foo
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  count = 0
+  clickHandler () {
+    this.count++
+  }
+}
 </script>
 
 <style>
