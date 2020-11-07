@@ -14,11 +14,26 @@ module.exports = {
 
     config.module
       .rule('ts')
-      .test(/\.ts(x)?$/)
+      .test(/\.ts$/)
       .use('babel-loader')
       .loader(require.resolve('babel-loader'))
       .options({
         presets: [['@babel/preset-typescript', { allExtensions: true }]],
+        plugins: [
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+          ['@babel/plugin-proposal-class-properties', { loose: true }],
+        ],
+      })
+
+    config.module
+      .rule('tsx')
+      .test(/\.tsx$/)
+      .use('babel-loader')
+      .loader(require.resolve('babel-loader'))
+      .options({
+        presets: [
+          ['@babel/preset-typescript', { allExtensions: true, isTSX: true }],
+        ],
         plugins: [
           ['@babel/plugin-proposal-decorators', { legacy: true }],
           ['@babel/plugin-proposal-class-properties', { loose: true }],
